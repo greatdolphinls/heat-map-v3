@@ -1,5 +1,4 @@
 import { Navigation } from "react-native-navigation";
-import { NativeModules } from "react-native";
 import { registerScreens } from "./register-screens";
 
 import {
@@ -18,50 +17,50 @@ import {
   VOLUME_SCREEN,
   VOLATILITY_SCREEN,
   SENTIMENT_SCREEN
-} from "./constants";
+} from "@navigator/constants";
 
 registerScreens();
 
-export function startSplashScene() {
-  Navigation.setDefaultOptions({
-    topBar: {
-      background: {
-        color: BACKGROUND_COLOR
-      },
-      title: {
-        color: MAIN_FORE_COLOR,
-        fontFamily: "HelveticaLT67MC",
-        fontSize: 28
-      },
-      backButton: {
-        title: "",
-        color: MAIN_FORE_COLOR
-      },
-      buttonColor: MAIN_FORE_COLOR
+Navigation.setDefaultOptions({
+  topBar: {
+    background: {
+      color: BACKGROUND_COLOR
     },
-    statusBar: {
-      style: "light"
-    },
-    layout: {
-      orientation: ["portrait"],
-      backgroundColor: BACKGROUND_COLOR
-    },
-    bottomTabs: {
-      backgroundColor: PANEL_COLOR,
-      titleDisplayMode: "alwaysShow",
-      animate: true,
-      elevation: 8
-    },
-    bottomTab: {
-      textColor: DISABLED_COLOR,
-      selectedTextColor: POSITIVE_COLOR,
-      iconColor: DISABLED_COLOR,
-      selectedIconColor: POSITIVE_COLOR,
+    title: {
+      color: MAIN_FORE_COLOR,
       fontFamily: "HelveticaLT67MC",
-      fontSize: 14
-    }
-  });
+      fontSize: 25,
+      alignment: "center"
+    },
+    backButton: {
+      title: "",
+      color: MAIN_FORE_COLOR
+    },
+    buttonColor: MAIN_FORE_COLOR
+  },
+  statusBar: {
+    style: "light"
+  },
+  layout: {
+    orientation: ["portrait"],
+    backgroundColor: BACKGROUND_COLOR
+  },
+  bottomTabs: {
+    backgroundColor: PANEL_COLOR,
+    titleDisplayMode: "alwaysShow",
+    animate: true
+  },
+  bottomTab: {
+    textColor: DISABLED_COLOR,
+    selectedTextColor: POSITIVE_COLOR,
+    iconColor: DISABLED_COLOR,
+    selectedIconColor: POSITIVE_COLOR,
+    fontFamily: "HelveticaLT67MC",
+    fontSize: 14
+  }
+});
 
+export function startSplashScene() {
   Navigation.setRoot({
     root: {
       component: {
@@ -196,33 +195,3 @@ export function startMainScene() {
     }
   });
 }
-
-//     tabsStyle: {
-//       tabBarButtonColor: DISABLED_COLOR,
-//       tabBarSelectedButtonColor: POSITIVE_COLOR,
-//       tabBarBackgroundColor: PANEL_COLOR,
-//       forceTitlesDisplay: true,
-//       tabFontFamily: "HelveticaLT67MC",
-//       tabFontSize: 14,
-//       selectedTabFontSize: 14
-//     },
-//     appStyle: {
-//       screenBackgroundColor: BACKGROUND_COLOR,
-//       statusBarColor: SUB_FORE_COLOR,
-//       tabBarButtonColor: DISABLED_COLOR,
-//       tabBarSelectedButtonColor: POSITIVE_COLOR,
-//       tabBarBackgroundColor: PANEL_COLOR,
-//       forceTitlesDisplay: true,
-//       tabFontFamily: "HelveticaLT67MC",
-//       tabFontWeight: 400,
-//       tabFontSize: 14,
-//       selectedTabFontSize: 14,
-//       navBarHidden: true,
-//       navBarTitleTextCentered: true,
-//       navBarBackgroundColor: BACKGROUND_COLOR,
-//       navBarTextColor: MAIN_FORE_COLOR,
-//       navBarButtonColor: SUB_FORE_COLOR,
-//       navBarTextFontSize: 25,
-//       navBarTextFontFamily: "HelveticaLT67MC",
-//       navBarTextFontBold: true
-//     }

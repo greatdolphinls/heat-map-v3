@@ -19,7 +19,7 @@ import {
   SENTIMENT_SCREEN,
   NOTIFICATIONS_SCREEN,
   SETTINGS_SCREEN
-} from "./constants";
+} from "@navigator/constants";
 
 const store = configureStore();
 

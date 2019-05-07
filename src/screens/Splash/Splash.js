@@ -12,7 +12,7 @@ class SplashScreen extends Component {
 
   componentDidMount() {
     const { fadeAnim } = this.state;
-    const timeoutDelay = 2000;
+    const timeoutDelay = 500;
 
     setTimeout(() => {
       Animated.timing(fadeAnim, {
