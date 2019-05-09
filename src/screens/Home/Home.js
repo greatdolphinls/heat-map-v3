@@ -3,6 +3,10 @@ import { View, Text, StyleSheet } from "react-native";
 import { Navigation } from "react-native-navigation";
 
 import { NOTIFICATIONS_SCREEN, SETTINGS_SCREEN } from "@navigator/constants";
+import Panel from "@components/Panel/Panel";
+import { getScale } from "@utils";
+
+const { width, height } = getScale(1, 1);
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -51,7 +55,9 @@ class HomeScreen extends Component {
   render() {
     return (
       <View>
-        <Text>Home Screen</Text>
+        <Panel label="home" width={width} height={height}>
+          <Text>Home Screen</Text>
+        </Panel>
       </View>
     );
   }

@@ -1,13 +1,14 @@
 import { Navigation } from "react-native-navigation";
 import { registerScreens } from "./register-screens";
 
+import { FONT_FAMILY } from "@constants";
 import {
   BACKGROUND_COLOR,
   PANEL_COLOR,
   DISABLED_COLOR,
-  POSITIVE_COLOR,
   SUB_FORE_COLOR,
-  MAIN_FORE_COLOR
+  MAIN_FORE_COLOR,
+  LABEL_COLOR
 } from "@colors";
 
 import {
@@ -24,11 +25,11 @@ registerScreens();
 Navigation.setDefaultOptions({
   topBar: {
     background: {
-      color: BACKGROUND_COLOR
+      color: PANEL_COLOR
     },
     title: {
       color: MAIN_FORE_COLOR,
-      fontFamily: "HelveticaLT67MC",
+      fontFamily: FONT_FAMILY,
       fontSize: 25,
       alignment: "center"
     },
@@ -52,10 +53,10 @@ Navigation.setDefaultOptions({
   },
   bottomTab: {
     textColor: DISABLED_COLOR,
-    selectedTextColor: POSITIVE_COLOR,
+    selectedTextColor: LABEL_COLOR,
     iconColor: DISABLED_COLOR,
-    selectedIconColor: POSITIVE_COLOR,
-    fontFamily: "HelveticaLT67MC",
+    selectedIconColor: LABEL_COLOR,
+    fontFamily: FONT_FAMILY,
     fontSize: 14
   }
 });

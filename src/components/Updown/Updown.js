@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';  
+import React, { Component } from "react";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 import {
   PANEL_COLOR,
@@ -7,68 +7,77 @@ import {
   MAIN_FORE_COLOR,
   NEGATIVE_COLOR
 } from "@colors";
+import { FONT_FAMILY } from "@constants";
+import Panel from "@components/Panel/Panel";
+import { getScale } from "@utils";
 
-const screenWidth = Math.round(Dimensions.get('window').width);
-const screenHeight = Math.round(Dimensions.get('window').height);
+const { width, height } = getScale(2, 4);
 const upImage = require("@assets/img/icon/up.png");
 const downImage = require("@assets/img/icon/down.png");
+const euImage = require("@assets/img/flags/eu.png");
 
 class Updown extends Component {
   render() {
     const { title, down, up } = this.props;
+
     return (
-      <View style={styles.panel}>
-        <Text style={styles.title}>{title}</Text>
+      <Panel label={title} width={width} height={height}>
         <View style={styles.arrowRow}>
           <View style={styles.arrowWithPercent}>
-            <Image resizeMode="contain" source={downImage} style={styles.updownImage} />
-            <Text style={[styles.percentText, styles.redColor]}>{down}%</Text>
+            <Image
+              resizeMode="contain"
+              source={euImage}
+              style={styles.flagImage}
+            />
           </View>
-          <View style={styles.arrowWithPercent}>
-            <Image resizeMode="contain" source={upImage} style={styles.updownImage} />
-            <Text style={[styles.percentText, styles.greenColor]}>{up}%</Text>
+          <View style={styles.arrowCol}>
+            <View style={styles.arrowRow}>
+              <Image
+                resizeMode="contain"
+                source={upImage}
+                style={styles.updownImage}
+              />
+              <Text style={[styles.percentText, styles.greenColor]}>{up}%</Text>
+            </View>
+            <View style={styles.arrowRow}>
+              <Image
+                resizeMode="contain"
+                source={downImage}
+                style={styles.updownImage}
+              />
+              <Text style={[styles.percentText, styles.redColor]}>{down}%</Text>
+            </View>
           </View>
         </View>
-      </View>
+      </Panel>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  panel: {
-    // flex: 1,
-    backgroundColor: PANEL_COLOR,
-    borderRadius: 16,
-    margin: 8,
-    width: screenWidth * 0.5 - 16,
-    height: screenHeight * 0.25 - 50
-  },
-  title: {
-    marginLeft: 16,
-    marginTop: 8,
-    marginBottom: 4,
-    fontSize: 20,
-    fontFamily: "HelveticaLT67MC",
-    color: MAIN_FORE_COLOR,
-    textTransform: 'uppercase'
+  flagImage: {
+    height: 55
   },
   updownImage: {
-    height: 44,
+    height: 25
   },
   arrowRow: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingLeft: 20,
-    paddingRight: 20
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+  arrowCol: {
+    flex: 1,
+    justifyContent: "center"
   },
   arrowWithPercent: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: "center"
   },
   percentText: {
     marginTop: 4,
-    fontSize: 18
+    fontSize: 18,
+    fontFamily: FONT_FAMILY
   },
   redColor: {
     color: NEGATIVE_COLOR

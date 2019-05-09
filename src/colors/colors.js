@@ -5,3 +5,4 @@ export const NEGATIVE_COLOR = "#972c24";
 export const POSITIVE_COLOR = "#0dd664";
 export const SUB_FORE_COLOR = "#395d73";
 export const MAIN_FORE_COLOR = "#ffffff";
+export const LABEL_COLOR = "#01adff";
