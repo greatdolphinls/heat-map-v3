@@ -3,6 +3,10 @@ import { View, Text } from "react-native";
 import { Navigation } from "react-native-navigation";
 
 import { NOTIFICATIONS_SCREEN, SETTINGS_SCREEN } from "@navigator/constants";
+import Panel from "@components/Panel/Panel";
+import { getScale } from "@utils";
+
+const { width, height } = getScale(1, 1);
 class StrengthScreen extends Component {
   constructor(props) {
     super(props);
@@ -49,9 +53,9 @@ class StrengthScreen extends Component {
 
   render() {
     return (
-      <View>
+      <Panel label="STRENGTH" width={width} height={height}>
         <Text>Strength Screen</Text>
-      </View>
+      </Panel>
     );
   }
 }

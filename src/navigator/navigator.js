@@ -101,25 +101,6 @@ export function startMainScene() {
               children: [
                 {
                   component: {
-                    name: HOME_SCREEN,
-                    options: options
-                  }
-                }
-              ],
-              options: {
-                bottomTab: {
-                  icon: require("@assets/img/icon/home.png"),
-                  testID: "FIRST_TAB_BAR_BUTTON",
-                  text: "HOME"
-                }
-              }
-            }
-          },
-          {
-            stack: {
-              children: [
-                {
-                  component: {
                     name: STRENGTH_SCREEN,
                     options: options
                   }
@@ -148,26 +129,7 @@ export function startMainScene() {
                 bottomTab: {
                   icon: require("@assets/img/icon/volume.png"),
                   testID: "SECOND_TAB_BAR_BUTTON",
-                  text: "VOLUME"
-                }
-              }
-            }
-          },
-          {
-            stack: {
-              children: [
-                {
-                  component: {
-                    name: VOLATILITY_SCREEN,
-                    options: options
-                  }
-                }
-              ],
-              options: {
-                bottomTab: {
-                  icon: require("@assets/img/icon/volatility.png"),
-                  testID: "FOURTH_TAB_BAR_BUTTON",
-                  text: "VOLATILITY"
+                  text: "VOLUME VOLATILITY"
                 }
               }
             }
