@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Navigation } from "react-native-navigation";
 
 import { NOTIFICATIONS_SCREEN, SETTINGS_SCREEN } from "@navigator/constants";
+import Updown from "@components/Updown/Updown";
+
+import { tempData } from "@services/tempData";
+
 class SentimentScreen extends Component {
   constructor(props) {
     super(props);
@@ -50,10 +54,28 @@ class SentimentScreen extends Component {
   render() {
     return (
       <View>
-        <Text>Sentiment Screen</Text>
+        <View style={styles.rowContainer}>
+          {tempData.map(data => (
+            <Updown
+              key={data.title}
+              title={data.title}
+              down={data.down}
+              up={data.up}
+            />
+          ))}
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  rowContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    flexWrap: "wrap"
+  }
+});
 
 export default SentimentScreen;

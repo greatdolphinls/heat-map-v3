@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { Navigation } from "react-native-navigation";
 
 import { NOTIFICATIONS_SCREEN, SETTINGS_SCREEN } from "@navigator/constants";
+import BarCharts from "@components/BarCharts/BarCharts";
 class VolatilityScreen extends Component {
   constructor(props) {
     super(props);
@@ -48,11 +49,7 @@ class VolatilityScreen extends Component {
   };
 
   render() {
-    return (
-      <View>
-        <Text>Volatility Screen</Text>
-      </View>
-    );
+    return <BarCharts title="Volatility" />;
   }
 }
 
