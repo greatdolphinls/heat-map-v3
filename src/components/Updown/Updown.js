@@ -14,10 +14,11 @@ import { getScale } from "@utils";
 const { width, height } = getScale(2, 4);
 const upImage = require("@assets/img/icon/up.png");
 const downImage = require("@assets/img/icon/down.png");
-const flagImage = require("@assets/img/flags/EUR.png");
+
 class Updown extends Component {
   render() {
     const { title, down, up } = this.props;
+    const flagImage = require("@assets/img/icon/EUR.png");
 
     return (
       <Panel label={title} width={width} height={height}>
@@ -28,6 +29,7 @@ class Updown extends Component {
               source={flagImage}
               style={styles.flagImage}
             />
+            <Text>{flagUrl}</Text>
           </View>
           <View style={styles.statsContainer}>
             <View style={styles.arrowRow}>
