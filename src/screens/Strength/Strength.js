@@ -6,7 +6,11 @@ import { NOTIFICATIONS_SCREEN, SETTINGS_SCREEN } from "@navigator/constants";
 import Panel from "@components/Panel/Panel";
 import { getScale } from "@utils";
 
-const { width, height } = getScale(1, 1);
+const dailyWidth = getScale(1, 5 / 2).width;
+const dailyHeight = getScale(1, 5 / 2).height;
+const multiWidth = getScale(1, 5 / 3).width;
+const multiHeight = getScale(1, 5 / 3).height;
+
 class StrengthScreen extends Component {
   constructor(props) {
     super(props);
@@ -50,12 +54,20 @@ class StrengthScreen extends Component {
       }
     });
   };
-
   render() {
     return (
-      <Panel label="STRENGTH" width={width} height={height}>
-        <Text>Strength Screen</Text>
-      </Panel>
+      <View>
+        <Panel
+          label="MAY 8, 2019 05:08:32"
+          width={dailyWidth}
+          height={dailyHeight}
+        >
+          <Text>Daily Screen</Text>
+        </Panel>
+        <Panel label="MULTI TIMEFRAME" width={multiWidth} height={multiHeight}>
+          <Text>Multi Screen</Text>
+        </Panel>
+      </View>
     );
   }
 }
