@@ -13,10 +13,8 @@ import {
 
 import {
   SPLASH_SCREEN,
-  HOME_SCREEN,
   STRENGTH_SCREEN,
   VOLUME_SCREEN,
-  VOLATILITY_SCREEN,
   SENTIMENT_SCREEN
 } from "@navigator/constants";
 

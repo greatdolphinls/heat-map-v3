@@ -22,7 +22,7 @@ class Updown extends Component {
 
     return (
       <Panel label={title} width={width} height={height}>
-        <View style={styles.arrowRow}>
+        <View style={styles.contianer}>
           <View style={styles.arrowWithPercent}>
             <Image
               resizeMode="contain"
@@ -55,6 +55,11 @@ class Updown extends Component {
 }
 
 const styles = StyleSheet.create({
+  contianer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center"
+  },
   flagImage: {
     height: 55
   },
