@@ -2,18 +2,17 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import {
-  PANEL_COLOR,
   POSITIVE_COLOR,
   MAIN_FORE_COLOR,
   NEGATIVE_COLOR,
-  SUB_FORE_COLOR
+  SUB_FORE_COLOR,
+  LABEL_COLOR
 } from "@colors";
 import { tempData } from "@services/tempData";
 import { WINDOW_WIDTH, FONT_FAMILY } from "@constants";
 import Panel from "@components/Panel/Panel";
 import { getScale } from "@utils";
 
-const { width, height } = getScale(1, 1);
 class BarCharts extends Component {
   state = {
     currencyArray: tempData
@@ -43,8 +42,10 @@ class BarCharts extends Component {
   };
 
   render() {
-    const { title } = this.props;
+    const { title, heightCount } = this.props;
     const { currencyArray } = this.state;
+    const { width, height } = getScale(1, heightCount);
+
     return (
       <Panel label={title} width={width} height={height}>
         <View style={styles.barContainer}>
@@ -64,7 +65,13 @@ class BarCharts extends Component {
                   {data.value.toFixed(1)}%
                 </Text>
                 <View style={{ flex: data.value * 0.01 }}>
-                  <View style={styles.singleBar} />
+                  <View
+                    style={[
+                      styles.singleBar,
+                      isMax && styles.maxBar,
+                      isMin && styles.minBar
+                    ]}
+                  />
                 </View>
                 <Text style={styles.bottomLabel}>{data.title}</Text>
               </View>
@@ -94,22 +101,28 @@ const styles = StyleSheet.create({
     color: MAIN_FORE_COLOR,
     fontSize: 16,
     fontFamily: FONT_FAMILY,
-    marginBottom: 8
+    marginBottom: 5
   },
   chartLabel: {
     flex: 0.5
   },
   bottomLabel: {
-    color: SUB_FORE_COLOR,
-    fontSize: 20,
-    marginTop: 24,
-    marginBottom: 24,
+    color: LABEL_COLOR,
+    fontSize: 18,
+    marginTop: 10,
+    marginBottom: 15,
     fontFamily: FONT_FAMILY
   },
   singleBar: {
     flex: 1,
-    backgroundColor: SUB_FORE_COLOR,
+    backgroundColor: LABEL_COLOR,
     width: WINDOW_WIDTH / 16
+  },
+  minBar: {
+    backgroundColor: NEGATIVE_COLOR
+  },
+  maxBar: {
+    backgroundColor: POSITIVE_COLOR
   },
   redColor: {
     color: NEGATIVE_COLOR

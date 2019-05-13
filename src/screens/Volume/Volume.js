@@ -50,7 +50,12 @@ class VolumeScreen extends Component {
   };
 
   render() {
-    return <BarCharts title="Volatility" />;
+    return (
+      <View>
+        <BarCharts title="Volume" heightCount="2" />
+        <BarCharts title="Volatility" heightCount="2" />
+      </View>
+    );
   }
 }
 

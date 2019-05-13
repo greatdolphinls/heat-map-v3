@@ -14,8 +14,7 @@ import { getScale } from "@utils";
 const { width, height } = getScale(2, 4);
 const upImage = require("@assets/img/icon/up.png");
 const downImage = require("@assets/img/icon/down.png");
-const euImage = require("@assets/img/flags/eu.png");
-
+const flagImage = require("@assets/img/flags/EUR.png");
 class Updown extends Component {
   render() {
     const { title, down, up } = this.props;
@@ -23,14 +22,14 @@ class Updown extends Component {
     return (
       <Panel label={title} width={width} height={height}>
         <View style={styles.contianer}>
-          <View style={styles.arrowWithPercent}>
+          <View style={styles.flagContainer}>
             <Image
               resizeMode="contain"
-              source={euImage}
+              source={flagImage}
               style={styles.flagImage}
             />
           </View>
-          <View style={styles.arrowCol}>
+          <View style={styles.statsContainer}>
             <View style={styles.arrowRow}>
               <Image
                 resizeMode="contain"
@@ -56,12 +55,27 @@ class Updown extends Component {
 
 const styles = StyleSheet.create({
   contianer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-end"
+  },
+  flagContainer: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 15
   },
   flagImage: {
-    height: 55
+    height: 60
+  },
+  statsContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 15,
+    paddingLeft: 0
   },
   updownImage: {
     height: 25
@@ -70,14 +84,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "center"
-  },
-  arrowCol: {
-    flex: 1,
-    justifyContent: "center"
-  },
-  arrowWithPercent: {
-    flex: 1,
-    alignItems: "center"
   },
   percentText: {
     marginTop: 4,
